@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>数组复习总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Java-数组-的类实现方法 类名:public class Array&amp;lt;E&amp;gt; 私有成员变量:1234//泛型数组 E代表Elementprivate E[] data;//元素个数private int size;  1.类的初始化方法:12345678910//有参构造//capacity:数组容量public Array(int capacity)&amp;#123;    data =">
+<meta name="keywords" content="数据结构复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组复习总结">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/数组/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java-数组-的类实现方法 类名:public class Array&amp;lt;E&amp;gt; 私有成员变量:1234//泛型数组 E代表Elementprivate E[] data;//元素个数private int size;  1.类的初始化方法:12345678910//有参构造//capacity:数组容量public Array(int capacity)&amp;#123;    data =">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/.com//..%5Cimages%5Cpasted-1.png">
+<meta property="og:image" content="http://yoursite.com/.com//%5Cimages%5Cpasted-2.png">
+<meta property="og:updated_time" content="2019-08-01T04:29:56.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="数组复习总结">
+<meta name="twitter:description" content="Java-数组-的类实现方法 类名:public class Array&amp;lt;E&amp;gt; 私有成员变量:1234//泛型数组 E代表Elementprivate E[] data;//元素个数private int size;  1.类的初始化方法:12345678910//有参构造//capacity:数组容量public Array(int capacity)&amp;#123;    data =">
+<meta name="twitter:image" content="http://yoursite.com/.com//..%5Cimages%5Cpasted-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,36 +158,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数组" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/31/数组/" class="archive-article-date">
-  	<time datetime="2019-07-31T07:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/31/数组/">数组复习总结</a>
+    <h1 class="article-title" itemprop="name">
+      数组复习总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/31/数组/" class="archive-article-date">
+  	<time datetime="2019-07-31T07:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java-数组-的类实现方法"><a href="#Java-数组-的类实现方法" class="headerlink" title="Java-数组-的类实现方法"></a>Java-数组-的类实现方法</h2><hr>
+<h4 id="类名"><a href="#类名" class="headerlink" title="类名:"></a>类名:</h4><p><code>public class Array&lt;E&gt;</code></p>
+<h4 id="私有成员变量"><a href="#私有成员变量" class="headerlink" title="私有成员变量:"></a>私有成员变量:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//泛型数组 E代表Element</span><br><span class="line">private E[] data;</span><br><span class="line">//元素个数</span><br><span class="line">private int size;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-类的初始化方法"><a href="#1-类的初始化方法" class="headerlink" title="1.类的初始化方法:"></a>1.类的初始化方法:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//有参构造</span><br><span class="line">//capacity:数组容量</span><br><span class="line">public Array(int capacity)&#123;</span><br><span class="line">    data = (E[]) new  Object[capacity];</span><br><span class="line">    size = 0;</span><br><span class="line"> &#125;</span><br><span class="line">//无参构造(默认容量为10)</span><br><span class="line">public Array()&#123;</span><br><span class="line">    this(10);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-数组基础操作方法-查找元素-获取数组信息-扩容"><a href="#2-数组基础操作方法-查找元素-获取数组信息-扩容" class="headerlink" title="2.数组基础操作方法(查找元素,获取数组信息,扩容)"></a>2.数组基础操作方法(查找元素,获取数组信息,扩容)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//获取元素个数</span><br><span class="line">public int getSize()&#123;</span><br><span class="line">    return size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//获取数组容量</span><br><span class="line">public int getCapacity()&#123;</span><br><span class="line">    return data.length;</span><br><span class="line">&#125;</span><br><span class="line">//查找是否包含元素</span><br><span class="line">public boolean contain(E e)&#123;</span><br><span class="line">    for (int i = 0; i &lt; size; i ++)&#123;</span><br><span class="line">        if (data[i].equals(e))</span><br><span class="line">            return true;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//查找元素位置,返回元素的index值</span><br><span class="line">public int find(E e)&#123;</span><br><span class="line">    for (int i = 0; i &lt; size; i ++)&#123;</span><br><span class="line">        if (data[i].equals(e))</span><br><span class="line">            return i;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> //改变容量</span><br><span class="line">private void resize(int newCapacity)&#123;</span><br><span class="line">    E[] newData = (E[]) new Object[newCapacity];</span><br><span class="line">    for (int i = 0; i &lt; size; i ++)</span><br><span class="line">        newData[i] = data[i];</span><br><span class="line">    data = newData;</span><br><span class="line">&#125;</span><br><span class="line">//重写toSting方法让其能在控制台显示</span><br><span class="line">@Override</span><br><span class="line">public String toString() &#123;</span><br><span class="line">    StringBuilder res = new StringBuilder();</span><br><span class="line">    res.append(String.format(&quot;Array:size = %d, Capacity = %d\n&quot;,size,data.length));</span><br><span class="line">    res.append(&apos;[&apos;);</span><br><span class="line">    for (int i = 0; i &lt; size; i ++)&#123;</span><br><span class="line">        res.append(data[i]);</span><br><span class="line">        //没有索引到最后一个</span><br><span class="line">        if (i != size -1)</span><br><span class="line">            res.append(&quot;, &quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.append(&apos;]&apos;);</span><br><span class="line">    return res.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-基础插入算法的代码实现"><a href="#3-基础插入算法的代码实现" class="headerlink" title="3.基础插入算法的代码实现:"></a>3.基础插入算法的代码实现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//添加数据</span><br><span class="line">   public void add(int index,E e)&#123;</span><br><span class="line">       if (index &lt; 0 || index &gt; size)</span><br><span class="line">           throw new IllegalArgumentException(&quot;下标参数不合法&quot;);</span><br><span class="line"></span><br><span class="line">       if (size == data.length)</span><br><span class="line">           resize(2 * data.length);//数组扩容</span><br><span class="line"></span><br><span class="line">       for (int i = size -1 ; i &gt;= index; i --)&#123;</span><br><span class="line">           data[i + 1] = data[i];</span><br><span class="line">       &#125;</span><br><span class="line">       data[index] = e;</span><br><span class="line">       size ++;</span><br><span class="line">   &#125;</span><br><span class="line">   //在数组末尾添加元素</span><br><span class="line">   public void addLast(E e)&#123;</span><br><span class="line">       add(size,e);</span><br><span class="line">   &#125;</span><br><span class="line">   //在数组头部添加元素</span><br><span class="line">   public void addFirst(E e)&#123;</span><br><span class="line">       add(0,e);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-基础删除算法代码的实现"><a href="#4-基础删除算法代码的实现" class="headerlink" title="4.基础删除算法代码的实现:"></a>4.基础删除算法代码的实现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//删除第index位元素,返回删除的元素值</span><br><span class="line">    public E remove(int index)&#123;</span><br><span class="line">        if (index &lt; 0 || index &gt;= size)</span><br><span class="line">            throw new IllegalArgumentException(&quot;index参数不合法&quot;);</span><br><span class="line">        E ret = data[index];</span><br><span class="line">        for (int i = index + 1; i &lt; size; i ++)</span><br><span class="line">            data[i - 1] = data[i];</span><br><span class="line">        size --;</span><br><span class="line"></span><br><span class="line">        if (size &lt;= data.length / 4 &amp;&amp; data.length /2 != 0)</span><br><span class="line">            resize(data.length / 2);</span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //删除值为Element的元素</span><br><span class="line">    public void removeElement(E e)&#123;</span><br><span class="line">       int index = find(e);</span><br><span class="line">       if (index != -1)</span><br><span class="line">           remove(index);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Array&lt;Integer&gt; arr = new Array&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        for (int i = 0; i &lt; 10; i ++)</span><br><span class="line">            arr.addLast(i);</span><br><span class="line">        System.out.println(arr);</span><br><span class="line"></span><br><span class="line">        arr.addFirst(-1);</span><br><span class="line">        arr.add(2,100);</span><br><span class="line">        System.out.println(arr);</span><br><span class="line"></span><br><span class="line">        int i = arr.remove(4);</span><br><span class="line">        arr.removeElement(100);</span><br><span class="line">        System.out.println(arr);</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果:"></a>结果:</h3><p><img src="/.com//..%5Cimages%5Cpasted-1.png" alt="upload successful"></p>
+<p><img src="/.com//%5Cimages%5Cpasted-2.png" alt="upload successful"></p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h1><p>数组是最基础的数据结构，但其中的解决问题的思路与后面的复杂数据类型异曲同工，掌握思想才是最重要的,</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,46 +240,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/31/数组/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/26/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-25T16:30:32.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/26/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -253,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
