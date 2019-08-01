@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>栈与队列 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="栈与队列 栈栈的结构可以简单理解为特殊的数组(后进先出原则),插入和删除操作都只能在末尾(栈顶)进行.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈与队列">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/队列/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="栈与队列 栈栈的结构可以简单理解为特殊的数组(后进先出原则),插入和删除操作都只能在末尾(栈顶)进行.">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://pvjh2sxdg.bkt.clouddn.com/ArrayStack%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png">
+<meta property="og:image" content="http://pvjh2sxdg.bkt.clouddn.com/%E6%A0%88----%E5%A4%8D%E6%9D%82%E5%BA%A6.png">
+<meta property="og:image" content="http://pvjh2sxdg.bkt.clouddn.com/ArrayQueue%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png">
+<meta property="og:image" content="http://pvjh2sxdg.bkt.clouddn.com/%E9%98%9F%E5%88%97----%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.png">
+<meta property="og:image" content="http://pvjh2sxdg.bkt.clouddn.com/LoopQueue%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png">
+<meta property="og:image" content="http://pvjh2sxdg.bkt.clouddn.com/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97----%E5%A4%8D%E6%9D%82%E5%BA%A6.png">
+<meta property="og:image" content="http://pvjh2sxdg.bkt.clouddn.com/ArrayQueue%E4%B8%8ELoopQueue%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94.png">
+<meta property="og:updated_time" content="2019-08-01T17:18:55.038Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="栈与队列">
+<meta name="twitter:description" content="栈与队列 栈栈的结构可以简单理解为特殊的数组(后进先出原则),插入和删除操作都只能在末尾(栈顶)进行.">
+<meta name="twitter:image" content="http://pvjh2sxdg.bkt.clouddn.com/ArrayStack%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,16 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-队列" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/01/队列/">栈与队列</a>
+    <h1 class="article-title" itemprop="name">
+      栈与队列
     </h1>
   
 
@@ -174,11 +184,79 @@
       
         <h1 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h1><hr>
 <h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>栈的结构可以简单理解为特殊的数组(<strong>后进先出原则</strong>),插入和删除操作都只能在末尾(栈顶)进行.</p>
-        
-          <a class="article-more-a" href="/2019/08/01/队列/#more">more >></a>
-        
+<a id="more"></a>
+<h3 id="类的实现方式"><a href="#类的实现方式" class="headerlink" title="类的实现方式"></a>类的实现方式</h3><p>新建一个接口,定义其中栈的常用的方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public interface Stack&lt;E&gt; &#123;</span><br><span class="line"></span><br><span class="line">    //获取容量</span><br><span class="line">    int getSize();</span><br><span class="line">    //判断是否非空</span><br><span class="line">    boolean isEmpty();</span><br><span class="line">    //入栈</span><br><span class="line">    void push(E e);</span><br><span class="line">    //出栈</span><br><span class="line">    E pop();</span><br><span class="line">    //查看栈顶元素</span><br><span class="line">    E peek();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现类则用到了上一章中Array类的方法(Array类方法看上一章):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayStack&lt;E&gt; implements Stack&lt;E&gt; &#123;</span><br><span class="line"></span><br><span class="line">    Array&lt;E&gt; array;</span><br><span class="line">    //有参构造</span><br><span class="line">    public ArrayStack(int capacity)&#123;</span><br><span class="line">        array = new Array&lt;&gt;(capacity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //无参构造</span><br><span class="line">    public ArrayStack()&#123;</span><br><span class="line">        array = new Array&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int getSize() &#123;</span><br><span class="line">        return array.getSize();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean isEmpty() &#123;</span><br><span class="line">        return array.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //获取数组容量</span><br><span class="line">    public int getCapacity()&#123;</span><br><span class="line">        return array.getCapacity();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void push(E e) &#123;</span><br><span class="line">        array.addLast(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public E pop() &#123;</span><br><span class="line">        return array.removeLast();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public E peek() &#123;</span><br><span class="line">        return array.getLast();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        StringBuilder res = new StringBuilder();</span><br><span class="line">        res.append(&quot;Stack:&quot;);</span><br><span class="line">        res.append(&apos;[&apos;);</span><br><span class="line">        for (int i = 0; i &lt; array.getSize(); i ++)&#123;</span><br><span class="line">            res.append(array.get(i));</span><br><span class="line">            if (i != array.getSize() -1);</span><br><span class="line">            res.append(&quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        res.append(&quot;]  Top&quot;);</span><br><span class="line">        return res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">	    ArrayStack&lt;Integer&gt; stack = new ArrayStack&lt;&gt;();</span><br><span class="line"></span><br><span class="line">	    for (int i = 0; i &lt; 5; i ++)&#123;</span><br><span class="line">	        stack.push(i);</span><br><span class="line">            System.out.println(stack);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">	    stack.pop();</span><br><span class="line">        System.out.println(stack);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果:<br><img src="http://pvjh2sxdg.bkt.clouddn.com/ArrayStack%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="运行结果"></p>
+<hr>
+<h3 id="栈的算法复杂度分析"><a href="#栈的算法复杂度分析" class="headerlink" title="栈的算法复杂度分析:"></a>栈的算法复杂度分析:</h3><p><img src="http://pvjh2sxdg.bkt.clouddn.com/%E6%A0%88----%E5%A4%8D%E6%9D%82%E5%BA%A6.png" alt="复杂度"></p>
+<hr>
+<h2 id="栈的具体应用-括号匹配算法"><a href="#栈的具体应用-括号匹配算法" class="headerlink" title="栈的具体应用:括号匹配算法"></a>栈的具体应用:括号匹配算法</h2><p><strong>问题:</strong></p>
+<p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p>
+<p><strong>算法:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">    public boolean isValid(String s) &#123;</span><br><span class="line"></span><br><span class="line">        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">        for(int i = 0; i &lt; s.length(); i ++)&#123;</span><br><span class="line">            char c = s.charAt(i);</span><br><span class="line">            if(c==&apos;(&apos;||c==&apos;[&apos;||c==&apos;&#123;&apos;)</span><br><span class="line">                stack.push(c);</span><br><span class="line"></span><br><span class="line">            else&#123;</span><br><span class="line">                if (stack.isEmpty())</span><br><span class="line">                return false;</span><br><span class="line"></span><br><span class="line">                char top = stack.pop();</span><br><span class="line">                if(top==&apos;)&apos;&amp;&amp;c!=&apos;(&apos;)</span><br><span class="line">                    return false;</span><br><span class="line">                if(top==&apos;]&apos;&amp;&amp;c!=&apos;[&apos;)</span><br><span class="line">                    return false;</span><br><span class="line">                if(top==&apos;&#125;&apos;&amp;&amp;c!=&apos;&#123;&apos;)</span><br><span class="line">                    return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return stack.isEmpty();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>输入字符串,当匹配完成时返回true,否则返回false</p>
+<hr>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列的定义与栈有点类似,不过队列遵循的原则是<strong>先进先出原则</strong>(栈为后进先出)</p>
+<h3 id="1-普通队列"><a href="#1-普通队列" class="headerlink" title="1.普通队列"></a>1.普通队列</h3><h4 id="类的实现方式-1"><a href="#类的实现方式-1" class="headerlink" title="类的实现方式:"></a>类的实现方式:</h4><p>与栈相同,定义接口,包含队列的算法操作:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public interface Queue&lt;E&gt; &#123;</span><br><span class="line"></span><br><span class="line">    //获取当前队列元素个数</span><br><span class="line">    int getSize();</span><br><span class="line">    //判断是否为空</span><br><span class="line">    boolean isEmpty();</span><br><span class="line">    //入队</span><br><span class="line">    void enqueue(E e);</span><br><span class="line">    //出队</span><br><span class="line">    E dequeue();</span><br><span class="line">    //查看队首元素</span><br><span class="line">    E getFront();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口的实现方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayQueue&lt;E&gt; implements Queue&lt;E&gt;&#123;</span><br><span class="line"></span><br><span class="line">    private Array&lt;E&gt; array;</span><br><span class="line"></span><br><span class="line">    //有参构造,参数为队列容量</span><br><span class="line">    public ArrayQueue(int capacity)&#123;</span><br><span class="line">        array = new Array&lt;&gt;(capacity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //无参构造</span><br><span class="line">    public ArrayQueue()&#123;</span><br><span class="line">        array = new Array&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int getSize() &#123;</span><br><span class="line">        return array.getSize();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //查看当前队列容量</span><br><span class="line">    public int getCapacity()&#123;</span><br><span class="line">        return array.getCapacity();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean isEmpty() &#123;</span><br><span class="line">        return array.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void enqueue(E e) &#123;</span><br><span class="line">        array.addLast(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public E dequeue() &#123;</span><br><span class="line">        return array.removeFirst();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public E getFront() &#123;</span><br><span class="line">        return array.getFirst();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        StringBuilder res = new StringBuilder();</span><br><span class="line">        res.append(String.format(&quot;Queue:&quot;));</span><br><span class="line">        res.append(&quot;front [&quot;);</span><br><span class="line">        for (int i = 0; i &lt; array.getSize(); i ++)&#123;</span><br><span class="line">            res.append(array.get(i));</span><br><span class="line">            //没有索引到最后一个</span><br><span class="line">            if (i != array.getSize() -1)</span><br><span class="line">                res.append(&quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        res.append(&quot;] tail&quot;);</span><br><span class="line">        return res.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试:</strong><br><img src="http://pvjh2sxdg.bkt.clouddn.com/ArrayQueue%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="运行结果"></p>
+<p><strong>复杂度分析</strong></p>
+<p><img src="http://pvjh2sxdg.bkt.clouddn.com/%E9%98%9F%E5%88%97----%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.png" alt="复杂度分析"></p>
+<hr>
+<h3 id="2-循环队列"><a href="#2-循环队列" class="headerlink" title="2.循环队列"></a>2.循环队列</h3><p>循环队列与普通队列的区别在于循环队列可以<strong>极大地提升出队的运行效率</strong>,其原理在于出队时不再需要将队列中其他元素向前移位,而是通过定义front和tail两个参数来定位队列头部和尾部的元素,从而大大提升效率.</p>
+<h4 id="类的实现"><a href="#类的实现" class="headerlink" title="类的实现"></a>类的实现</h4><p>实现方法同样继承了Queue接口,同时也定义了其他内部方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">public class LoopQueue&lt;E&gt; implements Queue&lt;E&gt; &#123;</span><br><span class="line"></span><br><span class="line">    //定义循环数组</span><br><span class="line">    private E[] data;</span><br><span class="line">    //定义队列头,尾</span><br><span class="line">    private int front, tail;</span><br><span class="line">    //定义数组元素</span><br><span class="line">    private int size;</span><br><span class="line"></span><br><span class="line">    public LoopQueue(int capaticy) &#123;</span><br><span class="line">        data = (E[]) new Object[capaticy + 1];</span><br><span class="line">        front = 0;</span><br><span class="line">        tail = 0;</span><br><span class="line">        size = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public LoopQueue() &#123;</span><br><span class="line">        this(10);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getCapacity() &#123;</span><br><span class="line">        return data.length - 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int getSize() &#123;</span><br><span class="line">        return size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean isEmpty() &#123;</span><br><span class="line">        return front == tail;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void enqueue(E e) &#123;</span><br><span class="line">        //判断队列是否满</span><br><span class="line">        if ((tail + 1) % data.length == front)</span><br><span class="line">            resize(getCapacity() * 2);</span><br><span class="line"></span><br><span class="line">        data[tail] = e;</span><br><span class="line">        tail = (tail + 1) % data.length;</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public E dequeue() &#123;</span><br><span class="line">        if (isEmpty())</span><br><span class="line">            throw new IllegalArgumentException(&quot;队列为空!&quot;);</span><br><span class="line"></span><br><span class="line">        E ret = data[front];</span><br><span class="line">        data[front] = null;</span><br><span class="line">        front = (front + 1) % data.length;</span><br><span class="line">        size--;</span><br><span class="line"></span><br><span class="line">        if (size == getCapacity() / 4 &amp;&amp; getCapacity() / 2 != 0)</span><br><span class="line">            resize(getCapacity() / 2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public E getFront() &#123;</span><br><span class="line">        if (isEmpty())</span><br><span class="line">            throw new IllegalArgumentException(&quot;队列为空!&quot;);</span><br><span class="line"></span><br><span class="line">        return data[front];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //改变容量</span><br><span class="line">    private void resize(int newCapacity) &#123;</span><br><span class="line">        E[] newData = (E[]) new Object[newCapacity + 1];</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; size; i++) &#123;</span><br><span class="line">            newData[i] = data[(i + front) % data.length];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        data = newData;</span><br><span class="line">        front = 0;</span><br><span class="line">        tail = size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        StringBuilder res = new StringBuilder();</span><br><span class="line">        res.append(String.format(&quot;LoopQueue:size = %d, Capacity = %d\n&quot;, size, getCapacity()));</span><br><span class="line">        res.append(&quot;front [&quot;);</span><br><span class="line">        for (int i = front; i != tail; i = (i + 1) % data.length) &#123;</span><br><span class="line">            res.append(data[i]);</span><br><span class="line">            //没有索引到最后一个</span><br><span class="line">            if ((i + 1) % data.length != tail)</span><br><span class="line">                res.append(&quot;, &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        res.append(&quot;] tail&quot;);</span><br><span class="line">        return res.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行结果:</strong></p>
+<p><img src="http://pvjh2sxdg.bkt.clouddn.com/LoopQueue%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="LoopQueue运行结果"></p>
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析:"></a>复杂度分析:</h4><p><img src="http://pvjh2sxdg.bkt.clouddn.com/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97----%E5%A4%8D%E6%9D%82%E5%BA%A6.png" alt="LoopQueue复杂度分析"></p>
+<hr>
+<h3 id="3-普通队列与循环队列的比较"><a href="#3-普通队列与循环队列的比较" class="headerlink" title="3.普通队列与循环队列的比较"></a>3.普通队列与循环队列的比较</h3><h4 id="运行速度的对比"><a href="#运行速度的对比" class="headerlink" title="运行速度的对比"></a>运行速度的对比</h4><p><strong>测试代码:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    //定义测试方法,返回值为运行时间</span><br><span class="line">    public static double testQueue(Queue&lt;Integer&gt; q, int opCount)&#123;</span><br><span class="line"></span><br><span class="line">        //开始时间</span><br><span class="line">        long startTime = System.nanoTime();</span><br><span class="line"></span><br><span class="line">        Random random = new Random();</span><br><span class="line">        for (int i = 0; i &lt; opCount; i++)</span><br><span class="line">            q.enqueue(random.nextInt(Integer.MAX_VALUE));</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; opCount; i++)</span><br><span class="line">            q.dequeue();</span><br><span class="line"></span><br><span class="line">        //结束时间</span><br><span class="line">        long endTime = System.nanoTime();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return (endTime - startTime) / 1000000000.0;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    public static  void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        int opCount = 100000;</span><br><span class="line"></span><br><span class="line">        ArrayQueue&lt;Integer&gt; arrayQueue = new ArrayQueue&lt;&gt;();</span><br><span class="line">        double time1 = testQueue(arrayQueue,opCount);</span><br><span class="line">        System.out.println(&quot;ArrayQueue time: &quot; + time1 + &quot;s&quot;);</span><br><span class="line"></span><br><span class="line">        LoopQueue&lt;Integer&gt; loopQueue = new LoopQueue&lt;&gt;();</span><br><span class="line">        double time2 = testQueue(loopQueue,opCount);</span><br><span class="line">        System.out.println(&quot;LoopQueue time: &quot; + time2 + &quot;s&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="结果对比"><a href="#结果对比" class="headerlink" title="结果对比"></a>结果对比</h5><p><img src="http://pvjh2sxdg.bkt.clouddn.com/ArrayQueue%E4%B8%8ELoopQueue%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94.png" alt="运行速度对比"></p>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>栈与普通队列的算法思路与数组相似,区别在于栈和队列对于插入-删除数据的定义不同</p>
+<p>循环队列的实现方式在普通队列的基础上复杂了许多,但带来的提升是显而易见的,当数据量越大,两者的运行时间差也越大,循环队列的优越性由此可见.</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,16 +265,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/01/队列/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/01/队列/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/31/数组/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数组</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -211,90 +348,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/数组/">数组</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/31/数组/" class="archive-article-date">
-  	<time datetime="2019-07-31T07:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java-数组-的类实现方法"><a href="#Java-数组-的类实现方法" class="headerlink" title="Java-数组-的类实现方法"></a>Java-数组-的类实现方法</h2><hr>
-<p>通过构造Array类实现数组的各种操作方法</p>
-        
-          <a class="article-more-a" href="/2019/07/31/数组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据结构复习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/31/数组/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#栈与队列"><span class="toc-number">1.</span> <span class="toc-text">栈与队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈"><span class="toc-number">1.1.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类的实现方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">类的实现方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#栈的算法复杂度分析"><span class="toc-number">1.1.2.</span> <span class="toc-text">栈的算法复杂度分析:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈的具体应用-括号匹配算法"><span class="toc-number">1.2.</span> <span class="toc-text">栈的具体应用:括号匹配算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队列"><span class="toc-number">1.3.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-普通队列"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.普通队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类的实现方式-1"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">类的实现方式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-循环队列"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.循环队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类的实现"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">类的实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复杂度分析"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">复杂度分析:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-普通队列与循环队列的比较"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.普通队列与循环队列的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行速度的对比"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">运行速度的对比</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#结果对比"><span class="toc-number">1.3.3.1.1.</span> <span class="toc-text">结果对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">1.3.4.</span> <span class="toc-text">小结</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -317,8 +396,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
